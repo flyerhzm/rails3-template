@@ -48,6 +48,9 @@ LAYOUT
 remove_file "public/index.html"
 remove_file "public/images/rails.png"
 
+create_file "log/.gitkeep"
+create_file "tmp/.gitkeep"
+
 git :init
 git :add => "."
 
