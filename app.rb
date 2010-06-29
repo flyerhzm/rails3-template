@@ -1,4 +1,6 @@
+# gem install haml compass
 gem "haml", ">= 3.0.13"
+gem "compass", ">= 0.10.2"
 gem "authlogic", ">= 2.1.5"
 gem "formtastic", ">= 1.0.0.beta"
 gem "inherited_resources", ">= 1.1.2"
@@ -10,10 +12,10 @@ gem "cucumber-rails", ">= 0.3.2", :group => :test
 
 generators = <<-GENERATORS
   config.generators do |g|
-    g.template_engine :haml
-    g.test_framework :rspec, :fixture => true, :views => false
-    g.fixture_replacement :factory_girl, :dir => "spec/factories"
-  end
+      g.template_engine :haml
+      g.test_framework :rspec, :fixture => true, :views => false
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+    end
 GENERATORS
 
 application generators
@@ -51,6 +53,10 @@ remove_file "public/images/rails.png"
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
+run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
+run "bundle install && bundle lock"
+run "rails g rspec:install"
+
 git :init
 git :add => "."
 
@@ -59,10 +65,10 @@ docs = <<-DOCS
 Run the following commands to complete the setup of #{app_name.humanize}:
 
 % cd #{app_name}
-% gem install bundler
-% bundle install
-% bundle lock
-% script/rails generate rspec:install
+
+# compass
+% compass init rails . --using blueprint/semantic
+% compass watch .
 
 DOCS
 
