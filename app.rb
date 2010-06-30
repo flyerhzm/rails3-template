@@ -17,6 +17,7 @@ gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "factory_girl_rails", ">= 1.0.0", :group => :test
 gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
 gem "cucumber-rails", ">= 0.3.2", :group => :test
+gem "webrat"
 gem "pickle", :git => "git://github.com/codegram/pickle.git", :group => :test
 
 generators = <<-GENERATORS
@@ -56,6 +57,9 @@ layout = <<-LAYOUT
     = yield
 LAYOUT
 
+remove_file "app/views/layouts/application.html.erb"
+create_file "app/views/layouts/application.html.haml", layout
+
 remove_file "public/index.html"
 remove_file "public/images/rails.png"
 
@@ -65,7 +69,7 @@ create_file "tmp/.gitkeep"
 run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
 run "bundle install && bundle lock"
 run "rails g rspec:install"
-run "rails g cucumber:install"
+run "rails g cucumber:install --rspec"
 run "rails g pickle:skeleton --path --email"
 
 git :init
