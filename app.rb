@@ -1,3 +1,10 @@
+rvmrc = <<-RVMRC
+rvm_gemset_create_on_use_flag=1
+rvm gemset use #{app_name}
+RVMRC
+
+create_file ".rvmrc", rvmrc
+
 # gem install haml compass
 gem "haml", ">= 3.0.13"
 gem "compass", ">= 0.10.2"
@@ -10,6 +17,7 @@ gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "factory_girl_rails", ">= 1.0.0", :group => :test
 gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
 gem "cucumber-rails", ">= 0.3.2", :group => :test
+gem "pickle", :git => "git://github.com/codegram/pickle.git", :group => :test
 
 generators = <<-GENERATORS
   config.generators do |g|
@@ -57,6 +65,8 @@ create_file "tmp/.gitkeep"
 run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
 run "bundle install && bundle lock"
 run "rails g rspec:install"
+run "rails g cucumber:install"
+run "rails g pickle:skeleton --path --email"
 
 git :init
 git :add => "."
