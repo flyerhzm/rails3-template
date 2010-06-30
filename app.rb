@@ -7,7 +7,7 @@ create_file ".rvmrc", rvmrc
 
 gem "haml", ">= 3.0.13"
 gem "compass", ">= 0.10.2"
-gem "authlogic", ">= 2.1.5"
+gem "authlogic", :git => "git://github.com/scrum8/authlogic.git"
 gem "formtastic", ">= 1.0.0.beta"
 gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
@@ -76,7 +76,7 @@ git :add => "."
 
 docs = <<-DOCS
 
-Run the following commands to complete the setup of #{app_name.humanize}:
+Run the following commands to complete the setup of #{app_name}:
 
 % cd #{app_name}
 
