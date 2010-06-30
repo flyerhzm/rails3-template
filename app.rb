@@ -6,6 +6,7 @@ gem "formtastic", ">= 1.0.0.beta"
 gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
 
+gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "factory_girl_rails", ">= 1.0.0", :group => :test
 gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
 gem "cucumber-rails", ">= 0.3.2", :group => :test
