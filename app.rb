@@ -5,7 +5,6 @@ RVMRC
 
 create_file ".rvmrc", rvmrc
 
-# gem install haml compass
 gem "haml", ">= 3.0.13"
 gem "compass", ">= 0.10.2"
 gem "authlogic", ">= 2.1.5"
@@ -66,11 +65,11 @@ remove_file "public/images/rails.png"
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
-run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
 run "bundle install && bundle lock"
 run "rails g rspec:install"
 run "rails g cucumber:install --rspec"
 run "rails g pickle:skeleton --path --email"
+run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
 
 git :init
 git :add => "."
@@ -83,7 +82,6 @@ Run the following commands to complete the setup of #{app_name.humanize}:
 
 # compass
 % compass init rails . --using blueprint/semantic
-% compass watch .
 
 DOCS
 
