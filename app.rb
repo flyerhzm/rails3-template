@@ -59,9 +59,9 @@ create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
 run "bundle install"
-run "rails g rspec:install"
-run "rails g cucumber:install --rspec"
-run "rails g pickle:skeleton --path --email"
+generate "rspec:install"
+generate "cucumber:install --rspec"
+generate "pickle:skeleton --path --email"
 run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
 
 git :init
