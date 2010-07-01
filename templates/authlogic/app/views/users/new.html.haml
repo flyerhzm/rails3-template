@@ -1,0 +1,10 @@
+%h1 Register
+
+= semantic_form_for @user do |form|
+  = form.semantic_error_messages
+  = form.inputs do
+    = form.input :login
+    = form.input :password
+    = form.input :password_confirmation
+  = form.buttons
+    = form.commit_button "Register"

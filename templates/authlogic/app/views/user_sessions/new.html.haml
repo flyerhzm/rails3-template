@@ -1,0 +1,10 @@
+%h1 Login
+
+= semantic_form_for @user_session do |form|
+  = form.semantic_error_messages
+  = form.inputs do
+    = form.input :login
+    = form.input :password
+    = form.input :remember_me, :as => :boolean
+  = form.buttons
+    = form.commit_button "Login"
