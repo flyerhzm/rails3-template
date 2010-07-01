@@ -1,13 +1,6 @@
-rvmrc = <<-RVMRC
-rvm_gemset_create_on_use_flag=1
-rvm gemset use #{app_name}
-RVMRC
-
-create_file ".rvmrc", rvmrc
-
 gem "haml", ">= 3.0.13"
 gem "compass", ">= 0.10.2"
-gem "authlogic", :git => "git://github.com/scrum8/authlogic.git"
+gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem "formtastic", ">= 1.0.0.beta"
 gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
@@ -65,7 +58,7 @@ remove_file "public/images/rails.png"
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
-run "bundle install && bundle lock"
+run "bundle install"
 run "rails g rspec:install"
 run "rails g cucumber:install --rspec"
 run "rails g pickle:skeleton --path --email"
