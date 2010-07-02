@@ -6,6 +6,7 @@ generate "controller users new"
 route "resource :user_session"
 route "root :to => 'user_sessions#new'"
 route "resources :users"
+route "resource :account, :controller => 'users'"
 
 file "app/controllers/application_controller.rb", <<-END
 class ApplicationController < ActionController::Base
@@ -13,7 +14,6 @@ class ApplicationController < ActionController::Base
   layout 'application'
 
   helper_method :current_user_session, :current_user
-  filter_parameter_logging :password, :password_confirmation
   
   private
     def current_user_session
@@ -60,5 +60,6 @@ get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/a
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/app/views/user_sessions/new.html.haml", "app/views/user_sessions/new.html.haml"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/app/controllers/users_controller.rb", "app/controllers/users_controller.rb"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/app/views/users/new.html.haml", "app/views/users/new.html.haml"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/app/views/users/show.html.haml", "app/views/users/show.html.haml"
 
 rake "db:migrate"
