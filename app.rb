@@ -1,5 +1,6 @@
 gem "haml", ">= 3.0.13"
 gem "compass", ">= 0.10.2"
+gem "will_paginate", "3.0.pre"
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem "formtastic", :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 gem "inherited_resources", ">= 1.1.2"
@@ -46,6 +47,17 @@ layout = <<-LAYOUT
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
+    - if !current_user
+      = link_to "Register", new_account_path
+      = link_to "Log In", new_user_session_path
+    - else
+      = link_to "My Account", account_path
+      = link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you want to logout?"
+
+    .flash
+      - flash.each do |type, message|
+        .message{:class => type}
+          %p= message
     = yield
 LAYOUT
 
