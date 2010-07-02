@@ -1,7 +1,7 @@
 gem "haml", ">= 3.0.13"
 gem "compass", ">= 0.10.2"
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
-gem "formtastic", ">= 1.0.0.beta"
+gem "formtastic", :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
 
@@ -59,6 +59,7 @@ create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
 run "bundle install"
+generate "formtastic:install"
 generate "rspec:install"
 generate "cucumber:install --rspec"
 generate "pickle:skeleton --path --email"
