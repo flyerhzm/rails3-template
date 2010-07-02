@@ -7,7 +7,7 @@ route "resource :user_session"
 route "root :to => 'user_sessions#new'"
 route "resources :users"
 
-file "app/controllers/application.rb", <<-END
+file "app/controllers/application_controller.rb", <<-END
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
