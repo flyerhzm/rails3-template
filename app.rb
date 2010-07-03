@@ -50,7 +50,10 @@ layout = <<-LAYOUT
 %html
   %head
     %title #{app_name}
-    = stylesheet_link_tag "compiled/screen", "compiled/formtastic", :cache => true
+    = stylesheet_link_tag 'compiled/screen', 'compiled/formtastic', 'compiled/formtastic_changes', :cache => true, :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
