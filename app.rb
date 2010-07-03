@@ -6,17 +6,18 @@ gem "formtastic", :git => 'git://github.com/justinfrench/formtastic.git', :branc
 gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
 
+gem "mongrel", :group => :development
+
 gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "factory_girl_rails", ">= 1.0.0", :group => :test
 gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
 gem "cucumber-rails", ">= 0.3.2", :group => :test
-gem "webrat"
 gem "pickle", :git => "git://github.com/codegram/pickle.git", :group => :test
 
 generators = <<-GENERATORS
   config.generators do |g|
       g.template_engine :haml
-      g.test_framework :rspec, :fixture => true, :views => false
+      g.test_framework :rspec, :fixture => false, :views => false
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
 GENERATORS
@@ -42,8 +43,8 @@ layout = <<-LAYOUT
 !!!
 %html
   %head
-    %title #{app_name.humanize}
-    = stylesheet_link_tag :all
+    %title #{app_name}
+    = stylesheet_link_tag "compiled/screen", "compiled/formtastic", :cache => true
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
@@ -58,7 +59,8 @@ layout = <<-LAYOUT
       - flash.each do |type, message|
         .message{:class => type}
           %p= message
-    = yield
+    .container
+      = yield
 LAYOUT
 
 remove_file "app/views/layouts/application.html.erb"
@@ -76,6 +78,10 @@ generate "rspec:install"
 generate "cucumber:install --rspec"
 generate "pickle:skeleton --path --email"
 run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
+run "sass-convert public/stylesheets/formtastic.css public/app/stylesheets/formtastic.scss"
+run "sass-convert public/stylesheets/formtastic_change.css public/app/stylesheets/formtastic_change.scss"
+run "rm public/stylesheets/formtastic.css"
+run "rm public/stylesheets/formtastic_change.css"
 
 git :init
 git :add => "."
