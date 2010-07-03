@@ -92,18 +92,13 @@ run "rm public/stylesheets/formtastic_changes.css"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/app/controllers/home_controller.rb", "app/controllers/home_controller.rb"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/app/views/home/show.html.haml", "app/views/home/show.html.haml"
 
+file ".gitignore", <<-END
+.DS_Store
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+public/stylesheets/compiled/**
+END
 git :init
 git :add => "."
-
-docs = <<-DOCS
-
-Run the following commands to complete the setup of #{app_name}:
-
-% cd #{app_name}
-
-# compass
-% compass init rails . --using blueprint/semantic
-
-DOCS
-
-log docs

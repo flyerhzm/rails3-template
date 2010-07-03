@@ -69,3 +69,5 @@ get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/c
 
 rake "db:migrate"
 rake "db:test:prepare"
+
+git :add => "."
