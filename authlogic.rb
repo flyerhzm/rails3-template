@@ -1,15 +1,14 @@
 generate "authlogic:session user_session"
 generate "model User login:string email:string crypted_password:string password_salt:string persistence_token:string single_access_token:string perishable_token:string"
-generate "controller user_sessions new"
-generate "controller users new"
 
+route "root :to => 'home#show'"
 route "resource :user_session"
-route "root :to => 'user_sessions#new'"
 route "resources :users"
 route "resource :account, :controller => 'users'"
 
 file "app/controllers/application_controller.rb", <<-END
 class ApplicationController < ActionController::Base
+  include InheritedResources::DSL
   protect_from_forgery
   layout 'application'
 
@@ -64,6 +63,9 @@ get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/a
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/spec/factories/users.rb", "spec/factories/users.rb"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/spec/models/user_spec.rb", "spec/models/user_spec.rb"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/spec/controllers/user_sessions_controller_spec.rb", "spec/controllers/user_sessions_controller_spec.rb"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/features/login.feature", "features/login.feature"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/features/support/paths.rb", "features/support/paths.rb"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/config/locales/en.yml", "config/locales/en.yml"
 
 rake "db:migrate"
 rake "db:test:prepare"

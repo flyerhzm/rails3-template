@@ -1,7 +1,6 @@
 %h1 Login
 
 = semantic_form_for @user_session, :url => user_session_path do |form|
-  = form.semantic_errors
   = form.inputs do
     = form.input :login
     = form.input :password

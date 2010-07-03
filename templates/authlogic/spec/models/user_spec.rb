@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   it "should succeed creating a new :valid_user from the Factory" do
-    Factory.create(:valid_user)
+    Factory.create(:user_flyerhzm)
   end
     
   it "should invalid :invalid_user factory" do

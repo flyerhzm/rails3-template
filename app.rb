@@ -10,8 +10,14 @@ gem "mongrel", :group => :development
 
 gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "factory_girl_rails", ">= 1.0.0", :group => :test
+gem "capybara", :group => :test
+gem "database_cleaner", :group => :test
+gem "cucumber-rails", :group => :test
+gem "cucumber", :group => :test
 gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
-gem "cucumber-rails", ">= 0.3.2", :group => :test
+gem "rspec", ">= 2.0.0.beta.12", :group => :test
+gem "spork", :group => :test
+gem "launchy", :group => :test
 gem "pickle", :git => "git://github.com/codegram/pickle.git", :group => :test
 
 generators = <<-GENERATORS
@@ -75,13 +81,16 @@ create_file "tmp/.gitkeep"
 run "bundle install"
 generate "formtastic:install"
 generate "rspec:install"
-generate "cucumber:install --rspec"
+generate "cucumber:install --rspec --capybara"
 generate "pickle:skeleton --path --email"
 run "compass init rails . --css-dir=public/stylesheets/compiled  --sass-dir=app/stylesheets --using blueprint"
-run "sass-convert public/stylesheets/formtastic.css public/app/stylesheets/formtastic.scss"
-run "sass-convert public/stylesheets/formtastic_change.css public/app/stylesheets/formtastic_change.scss"
+run "sass-convert public/stylesheets/formtastic.css app/stylesheets/formtastic.scss"
+run "sass-convert public/stylesheets/formtastic_change.css app/stylesheets/formtastic_change.scss"
 run "rm public/stylesheets/formtastic.css"
 run "rm public/stylesheets/formtastic_change.css"
+
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/app/controllers/home_controller.rb", "app/controllers/home_controller.rb"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/app/views/home/show.html.haml", "app/views/home/show.html.haml"
 
 git :init
 git :add => "."

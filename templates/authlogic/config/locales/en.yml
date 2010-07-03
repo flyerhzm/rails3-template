@@ -1,0 +1,10 @@
+en:
+  flash:
+    user_sessions:
+      create:
+        notice: Login successful!
+      destroy:
+        notice: Logout successful!
+    users:
+      create:
+        notice: Register successful!
