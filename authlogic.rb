@@ -61,5 +61,9 @@ get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/a
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/app/controllers/users_controller.rb", "app/controllers/users_controller.rb"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/app/views/users/new.html.haml", "app/views/users/new.html.haml"
 get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/app/views/users/show.html.haml", "app/views/users/show.html.haml"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/spec/factories/users.rb", "spec/factories/users.rb"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/spec/models/user_spec.rb", "spec/models/user_spec.rb"
+get "http://github.com/flyerhzm/rails3-template/raw/master/templates/authlogic/spec/controllers/user_sessions_controller_spec.rb", "spec/controllers/user_sessions_controller_spec.rb"
 
 rake "db:migrate"
+rake "db:test:prepare"
