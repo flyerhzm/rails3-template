@@ -1,6 +1,6 @@
 gem "haml", ">= 3.0.13"
 gem "compass", ">= 0.10.2"
-gem "will_paginate", "3.0.pre"
+gem "will_paginate", :git => "git://github.com/mislav/will_paginate.git", :branch => 'rails3'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem "formtastic", :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 gem "inherited_resources", ">= 1.1.2"
