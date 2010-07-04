@@ -47,7 +47,7 @@ initializer "jquery.rb", jquery
 
 layout = <<-LAYOUT
 !!!
-%html
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
   %head
     %title #{app_name}
     = stylesheet_link_tag 'compiled/screen', 'compiled/formtastic', 'compiled/formtastic_changes', :cache => true, :media => 'screen, projection'
