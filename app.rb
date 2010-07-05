@@ -12,6 +12,8 @@ gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "rspec", ">= 2.0.0.beta.12", :group => :test
 gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
 gem "factory_girl_rails", ">= 1.0.0", :group => :test
+gem "remarkable_activerecord", "3.1.13", :group => :test
+gem 'remarkable_rails', "3.1.13", :group => :test
 
 gem "cucumber", :group => :cucumber
 gem "cucumber-rails", :group => :cucumber
