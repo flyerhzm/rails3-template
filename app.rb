@@ -9,16 +9,17 @@ gem "exception_notification", :git => "git://github.com/rails/exception_notifica
 gem "mongrel", :group => :development
 
 gem "autotest-rails", ">= 4.1.0", :group => :test
-gem "factory_girl_rails", ">= 1.0.0", :group => :test
-gem "capybara", :group => :test
-gem "database_cleaner", :group => :test
-gem "cucumber-rails", :group => :test
-gem "cucumber", :group => :test
-gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
 gem "rspec", ">= 2.0.0.beta.12", :group => :test
-gem "spork", :group => :test
-gem "launchy", :group => :test
-gem "pickle", :git => "git://github.com/codegram/pickle.git", :group => :test
+gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
+gem "factory_girl_rails", ">= 1.0.0", :group => :test
+
+gem "cucumber", :group => :cucumber
+gem "cucumber-rails", :group => :cucumber
+gem "capybara", :group => :cucumber
+gem "database_cleaner", :group => :cucumber
+gem "spork", :group => :cucumber
+gem "launchy", :group => :cucumber
+gem "pickle", :git => "git://github.com/codegram/pickle.git", :group => :cucumber
 
 generators = <<-GENERATORS
   config.generators do |g|
@@ -105,3 +106,4 @@ public/stylesheets/compiled/**
 END
 git :init
 git :add => "."
+git :commit => %Q(-am "build a rails3 app by flyerhzm's rails3-template")

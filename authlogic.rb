@@ -71,3 +71,4 @@ rake "db:migrate"
 rake "db:test:prepare"
 
 git :add => "."
+git :commit => %Q(-am "add authlogic by flyerhzm's rails3-template")
