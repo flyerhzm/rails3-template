@@ -8,6 +8,7 @@ gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
 
 gem "mongrel", :group => :development
+gem "awesome_print", :require 'ap', :group => :development
 
 gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "rspec", ">= 2.0.0.beta.12", :group => :test
