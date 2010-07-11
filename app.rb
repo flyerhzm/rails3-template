@@ -6,6 +6,7 @@ gem "formtastic", :git => 'git://github.com/justinfrench/formtastic.git', :branc
 gem "has_scope", ">= 0.5.0"
 gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
+gem "css_sprite", ">= 1.4.9"
 
 gem "mongrel", :group => :development
 gem "awesome_print", :require => 'ap', :group => :development

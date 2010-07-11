@@ -23,6 +23,7 @@ Plugins/gems included
 
 haml
 compass
+css_sprite
 
 will_paginate
 formtastic
