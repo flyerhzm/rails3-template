@@ -8,13 +8,13 @@ gem "inherited_resources", ">= 1.1.2"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git"
 
 gem "mongrel", :group => :development
-gem "awesome_print", :require 'ap', :group => :development
+gem "awesome_print", :require => 'ap', :group => :development
 
 gem "autotest-rails", ">= 4.1.0", :group => :test
 gem "rspec", ">= 2.0.0.beta.12", :group => :test
 gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
 gem "factory_girl_rails", ">= 1.0.0", :group => :test
-gem 'remarkable_activerecord', '>= 4.0.0.alpha2', :group => :test
+gem "remarkable_activerecord", ">= 4.0.0.alpha2", :group => :test
 
 gem "cucumber", :group => :cucumber
 gem "cucumber-rails", :group => :cucumber
